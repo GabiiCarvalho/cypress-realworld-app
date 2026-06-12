@@ -1,3 +1,23 @@
+# 🛡️ Desafio de Automação de Testes - Cypress (LumeStack)
+
+Este repositório é um fork do projeto **Real World App** da Cypress.io, utilizado como projeto prático durante o curso **"Profissão QA"** na **LumeStack** para consolidação de conhecimentos em testes funcionais manuais e automatizados.
+
+## 🚀 O que foi desenvolvido neste projeto?
+
+Eu fui responsável por planejar, estruturar e automatizar os testes funcionais das duas principais features de autenticação do sistema:
+
+- **Módulo de Login (Sign In)**
+- **Módulo de Cadastro (Sign Up / Register)**
+
+### 🛠️ Práticas e Padrões Aplicados:
+
+- **Testes Funcionais Manuais:** Mapeamento de cenários de sucesso, fluxos alternativos e tratamentos de erro (como validação de campos obrigatórios vazios).
+- **Page Objects Pattern (POM):** Estruturação do código em classes (`signUpPage.js` e `signInPage.js`) para garantir a reutilização de seletores e métodos, mantendo o código limpo e escalável.
+- **Data-Driven Testing (JSON):** Separação total da massa de dados dos scripts de teste, utilizando arquivos JSON (`user-data.json`) para simular os inputs dos usuários de forma dinâmica.
+- **Cypress Avançado:** Implementação de lógicas condicionais inteligentes para simular com precisão o comportamento de inputs limpos (usando `.clear()`) sem quebrar a execução da esteira.
+
+---
+
 <p align="center">
   <!-- We use two SVGs here so that this displays correctly
     on Github. This might not look right in other Markdown previewers. -->

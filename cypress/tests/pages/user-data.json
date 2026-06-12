@@ -1,0 +1,24 @@
+{
+    "userSuccess": {
+        "username": "GabiiCarvalho_2016",
+        "password": "Gabi142536"
+    },
+    "userFail": {
+        "username": "GabiiCarvalho",
+        "password": "Gabi142536"
+    },
+    "userRegisterSuccess": {
+        "firstName": "Natan",
+        "lastName": "Carvalho",
+        "username": "Natan.Carvalho",
+        "password": "123123",
+        "confirmPassword": "123123"
+    },
+    "userRegisterFail": {
+        "firstName": "Natan",
+        "lastName": "Carvalho",
+        "username": "",
+        "password": "123123",
+        "confirmPassword": "123123"
+    }
+}
