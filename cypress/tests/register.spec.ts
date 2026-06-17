@@ -14,6 +14,7 @@ describe('Register', () => {
       userData.userRegisterSuccess.confirmPassword
     );
   })
+  
   it('Register - Fail: Empty username field', () => {
     signUpPage.accessSignUpPage();
     signUpPage.registerWithAnyUser(
