@@ -2,19 +2,35 @@
 
 Este repositório é um fork do projeto **Real World App** da Cypress.io, utilizado como projeto prático durante o curso **"Profissão QA"** na **LumeStack** para consolidação de conhecimentos em testes funcionais manuais e automatizados.
 
+---
+
 ## 🚀 O que foi desenvolvido neste projeto?
 
-Eu fui responsável por planejar, estruturar e automatizar os testes funcionais das duas principais features de autenticação do sistema:
+Eu fui responsável por planejar, estruturar e automatizar os testes funcionais de ponta a ponta (E2E) das principais features do sistema:
 
-- **Módulo de Login (Sign In)**
-- **Módulo de Cadastro (Sign Up / Register)**
+*   **Módulo de Login (Sign In):** Validação de acessos com credenciais válidas e fluxos de exceção.
+*   **Módulo de Cadastro (Sign Up / Register):** Criação de novas contas e validações de regras de negócio de campos.
+*   **Módulo de Transações Financeiras:** Fluxos de envio de dinheiro entre usuários, verificação de saldo e histórico de movimentações.
+*   **Módulo de Feeds (Timeline):** Validação de visibilidade e persistência de transações nos feeds públicos e privados (**EVERYONE** e **MINE**).
 
-### 🛠️ Práticas e Padrões Aplicados:
+---
 
-- **Testes Funcionais Manuais:** Mapeamento de cenários de sucesso, fluxos alternativos e tratamentos de erro (como validação de campos obrigatórios vazios).
-- **Page Objects Pattern (POM):** Estruturação do código em classes (`signUpPage.js` e `signInPage.js`) para garantir a reutilização de seletores e métodos, mantendo o código limpo e escalável.
-- **Data-Driven Testing (JSON):** Separação total da massa de dados dos scripts de teste, utilizando arquivos JSON (`user-data.json`) para simular os inputs dos usuários de forma dinâmica.
-- **Cypress Avançado:** Implementação de lógicas condicionais inteligentes para simular com precisão o comportamento de inputs limpos (usando `.clear()`) sem quebrar a execução da esteira.
+## 🐛 Bugs Reais Encontrados e Mapeados
+
+Durante o desenvolvimento da automação, os scripts foram desenhados para agir como guardiões da qualidade, o que permitiu identificar falhas críticas de lógica de negócio no sistema:
+
+1.  **Bug de Transação Sem Saldo Suficiente:** O sistema permite a conclusão de transferências com valores acima do saldo em conta corrente (retornando status `HTTP 200`), exibindo uma mensagem de sucesso em vez de bloquear o fluxo com um alerta de erro.
+2.  **Bug de Sincronização no Feed Público (Everyone):** Transações válidas efetuadas com sucesso são registradas corretamente no histórico privado (`MINE`), mas falham em atualizar e aparecer na timeline global (`EVERYONE`), evidenciando um problema de cache, filtros nativos ou comunicação via WebSocket.
+
+---
+
+## 🛠️ Práticas e Padrões Aplicados:
+
+*   **Testes Funcionais Manuais:** Mapeamento de cenários de sucesso, fluxos alternativos e tratamentos de erro (como validação de campos obrigatórios vazios).
+*   **Page Objects Pattern (POM):** Estruturação do código em classes (`signUpPage.js` e `signInPage.js`) para garantir a reutilização de seletores e métodos, mantendo o código limpo e escalável.
+*   **Data-Driven Testing (JSON):** Separação total da massa de dados dos scripts de teste, utilizando arquivos JSON (`user-data.json`) para simular os inputs dos usuários de forma dinâmica.
+*   **Asserções Positivas e Negativas:** Uso avançado do Cypress (`should('not.exist')`, `should('be.visible')`) para garantir que elementos de erro ou sucesso apareçam apenas nos momentos corretos da jornada do usuário.
+*   **Cypress Avançado:** Implementação de lógicas condicionais inteligentes para simular com precisão o comportamento de inputs limpos (usando `.clear()`) sem quebrar a execução da esteira, além de manipulação de estados de tela via `cy.reload()`.
 
 ---
 
